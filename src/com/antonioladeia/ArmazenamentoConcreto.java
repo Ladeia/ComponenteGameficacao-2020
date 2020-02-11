@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ArmazenamentoConcreto implements Armazenamento {
 	
-		List<Usuario> usuarios;
+		private List<Usuario> usuarios;
 
 		public ArmazenamentoConcreto() {
 			usuarios = new ArrayList<Usuario>();
@@ -40,7 +40,12 @@ public class ArmazenamentoConcreto implements Armazenamento {
 			return retorno;
 		}
 		
-		public Usuario getUsuario(String nome) {
+		public List<String> retornaPontosDeUsuario(String nome) {
+			Usuario usuario = this.getUsuario(nome);
+			return usuario.getTiposPontucoes();
+		}
+
+		private Usuario getUsuario(String nome) {
 			Usuario retorno = new Usuario("");
 			for (Usuario usuario :usuarios){
 				if(usuario.temNome(nome)) {
@@ -54,16 +59,4 @@ public class ArmazenamentoConcreto implements Armazenamento {
 			return this.usuarios;
 		}
 
-		public List<String> retornaPontosDeUsuario(String nome) {
-			Usuario usuario = this.getUsuario(nome);
-			return usuario.getTiposPontucoes();
-		}
-
-		@Override
-		public List<String> getTiposPontuacoes(String nome) {
-			Usuario usuario = this.getUsuario(nome);
-			return usuario.getTiposPontucoes();
-		}
-
-		
 }

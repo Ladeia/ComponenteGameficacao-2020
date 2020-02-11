@@ -36,25 +36,28 @@ public class ArmazenamentoMock implements Armazenamento{
 
 	@Override
 	public List<String> retornaPontosDeUsuario(String nome) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Usuario getUsuario(String nome) {
-		Usuario usuario = new Usuario(nome);
-		usuario.adicionarPontuacao("curtida", 1);
-		return usuario;
-	}
-
-	@Override
-	public List<String> getTiposPontuacoes(String nome) {
 		List<String> retorno = new ArrayList<String>();
 		retorno.add("curtida");
 		retorno.add("vidas");
 		retorno.add("estrela");
 		return retorno;
 	}
+
+//	@Override
+//	public Usuario getUsuario(String nome) {
+//		Usuario usuario = new Usuario(nome);
+//		usuario.adicionarPontuacao("curtida", 1);
+//		return usuario;
+//	}
+//
+//	@Override
+//	public List<String> getTiposPontuacoes(String nome) {
+//		List<String> retorno = new ArrayList<String>();
+//		retorno.add("curtida");
+//		retorno.add("vidas");
+//		retorno.add("estrela");
+//		return retorno;
+//	}
 
 	@Override
 	public List<Usuario> getUsuarios() {

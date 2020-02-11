@@ -17,26 +17,15 @@ public class Placar {
 	}
 
 	public Map<String, Integer> retornaTodosPontosUsuario(String nome) {
-		Usuario usuario = armazenamento.getUsuario(nome);
 		Map<String, Integer> resultado = new HashMap<String, Integer>();
 		
-		if(!usuario.getNome().equals("")) {
-			List<String> pontuacoes = armazenamento.getTiposPontuacoes(nome);
-			
-			for(String pontuacao : pontuacoes) {
-				resultado.put(pontuacao, armazenamento.retornaPontuacao(nome, pontuacao));
-			}
+		List<String> pontuacoes = armazenamento.retornaPontosDeUsuario(nome);
+		
+		for(String pontuacao : pontuacoes) {
+			resultado.put(pontuacao, armazenamento.retornaPontuacao(nome, pontuacao));
 		}
 		
 		return resultado;
-	}
-
-	public Usuario getUsuario(String nome) {
-		return armazenamento.getUsuario(nome);
-	}
-
-	public List<String> retornaPontosDeUsuario(String nome) {
-		return armazenamento.retornaPontosDeUsuario(nome);
 	}
 
 	public Map<String, Integer> retornaRankingPontuacaoPorTipo(String tipo) {
@@ -60,4 +49,5 @@ public class Placar {
 		
 		return retornoOrdenado;
 	}
+
 }

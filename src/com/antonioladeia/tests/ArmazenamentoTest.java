@@ -9,33 +9,8 @@ import org.junit.Test;
 
 import com.antonioladeia.Armazenamento;
 import com.antonioladeia.ArmazenamentoConcreto;
-import com.antonioladeia.Usuario;
 
 public class ArmazenamentoTest {
-
-	@Test
-	public void armazenaUmaCurtidaTest() {
-		Armazenamento armazenamento = new ArmazenamentoConcreto();
-		armazenamento.registraPontuacao("Antonio", "curtida", 1);
-		
-		Usuario usuario = armazenamento.getUsuario("Antonio");
-		
-		assertEquals(usuario.temNome("Antonio"), Boolean.TRUE);
-		assertEquals((Integer)usuario.getPontuacao("curtida"), (Integer) 1);
-	}
-	
-	@Test
-	public void armazenaMaisDeUmaCurtidaTest() {
-		Armazenamento armazenamento = new ArmazenamentoConcreto();
-		armazenamento.registraPontuacao("Antonio", "curtida", 1);
-		armazenamento.registraPontuacao("Antonio", "curtida", 5);
-
-		
-		Usuario usuario = armazenamento.getUsuario("Antonio");
-		
-		assertEquals(usuario.temNome("Antonio"), Boolean.TRUE);
-		assertEquals((Integer)usuario.getPontuacao("curtida"), (Integer) 6);
-	}
 	
 	@Test
 	public void retornaQuantidadeCurtidasTest() {
